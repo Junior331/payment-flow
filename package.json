@@ -1,0 +1,34 @@
+{
+  "name": "payment-flow",
+  "version": "1.0.0",
+  "description": "Fluxo de pagamento com a seleção de um plano e validação dos campos.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanaraujop/payment-flow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanaraujop/payment-flow/issues"
+  },
+  "homepage": "https://github.com/alanaraujop/payment-flow#readme",
+  "dependencies": {
+    "next": "^10.1.3",
+    "polished": "^4.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-loading": "^2.0.3",
+    "styled-components": "^5.2.3",
+    "styled-media-query": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.4"
+  }
+}
