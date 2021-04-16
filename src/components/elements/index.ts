@@ -1,6 +1,3 @@
-import { Button } from "./Button";
-import { Input } from "./Input";
-import { Logo } from "./Logo";
-import { TextArea } from "./TextArea";
+import Logo from "./Logo";
 
-export { Button, Input, Logo, TextArea };
+export { Logo };
