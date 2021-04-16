@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { usePurchsae } from "../src/data/purchase/usePurchase";
+import { usePayment } from "../src/data/payment/usePayment";
 
 function PlanSelectorPage() {
-  const { paymentData, setPaymentData } = usePurchsae();
+  const { paymentData, setPaymentData } = usePayment();
   useEffect(() => {
     setTimeout(() => {
       setPaymentData({ couponCode: "1234" });
