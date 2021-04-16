@@ -1,14 +1,14 @@
 import React from "react";
 import App from "next/app";
-import { PurchaseProvider } from "../src/data/purchase/PurchaseProvider";
+import { PaymentProvider } from "../src/data/payment/PaymentProvider";
 
 export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <PurchaseProvider>
+      <PaymentProvider>
         <Component {...pageProps} />
-      </PurchaseProvider>
+      </PaymentProvider>
     );
   }
 }
