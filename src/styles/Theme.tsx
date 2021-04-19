@@ -9,15 +9,21 @@ const Theme: DefaultTheme = {
   palette: {
     type: "dark",
     primary: {
-      light: "#121145",
+      light: "#262561",
       main: "#121145",
-      dark: "#121145",
+      dark: "#0d0c2e",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#f7ad5e",
+      main: "#F5850B",
+      dark: "#794207",
       contrastText: "#fff",
     },
     text: {
       primary: "#121145",
-      secondary: "#fcfcfc",
-      disabled: "#fbfbfb",
+      secondary: "#767182",
+      disabled: "#E1DEE8",
     },
     background: {
       paper: "#f4f3f6",
@@ -90,8 +96,22 @@ const Theme: DefaultTheme = {
     },
     button: {
       fontFamily: "DM Sans",
-      fontWeight: 700,
+      fontWeight: 300,
+      fontSize: "1rem",
+      lineHeight: 1.167,
+      letterSpacing: "-0.01562em",
+    },
+    input: {
+      fontFamily: "DM Sans",
+      fontWeight: 400,
       fontSize: "1.2rem",
+      lineHeight: 1.167,
+      letterSpacing: "-0.01562em",
+    },
+    label: {
+      fontFamily: "DM Sans",
+      fontWeight: 400,
+      fontSize: "0.6rem",
       lineHeight: 1.167,
       letterSpacing: "-0.01562em",
     },
@@ -99,14 +119,16 @@ const Theme: DefaultTheme = {
   shape: {
     borderRadius: "5px",
     padding: {
+      smallest: "4px",
       small: "8px",
       medium: "12px",
       large: "16px",
       huge: "24px",
     },
     margin: {
+      smallest: "4px",
       small: "8px",
-      regular: "12px",
+      medium: "12px",
       large: "16px",
       huge: "24px",
     },

@@ -6,6 +6,7 @@ import GlobalStyle from "../src/styles/GlobalStyle";
 import Theme from "../src/styles/Theme";
 import { Layout } from "../src/components";
 import "./_app.css";
+import { PlanProvider } from "../src/data/plan/PlanProvider";
 
 export default class MyApp extends App {
   render() {
@@ -14,9 +15,11 @@ export default class MyApp extends App {
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
         <PaymentProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <PlanProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </PlanProvider>
         </PaymentProvider>
       </ThemeProvider>
     );

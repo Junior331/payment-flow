@@ -1,17 +1,14 @@
 import { useEffect } from "react";
-import { Typography } from "../src/components";
-import { usePayment } from "../src/data/payment/usePayment";
+import { PaymentForm, PlanSelector, Typography } from "../src/components";
+import { CreditCard } from "../src/components";
+import { usePlan } from "../src/data/plan/usePlan";
 
 function PlanSelectorPage() {
-  const { paymentData, setPaymentData } = usePayment();
-  useEffect(() => {
-    setTimeout(() => {
-      setPaymentData({ couponCode: "1234" });
-    }, 3000);
-  }, []);
+  const { plansFriendly } = usePlan();
   return (
     <div>
-      <Typography variant="h1">Estamos quase lá!</Typography>
+      <Typography variant="h1">Confira o seu plano:</Typography>
+      <PlanSelector plans={plansFriendly} />
     </div>
   );
 }
