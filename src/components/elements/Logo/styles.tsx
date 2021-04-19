@@ -1,16 +1,12 @@
 import styled from "styled-components";
+import Image from "next/image";
 
-interface LogoProps {
-  width: string;
-  height: string;
-  padding: string;
-  margin: string;
+interface ContainerProps {
+  padding?: string;
+  margin?: string;
 }
 
-export const LogoContainer = styled.img<LogoProps>`
-  display: flex;
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+export const Container = styled.div<ContainerProps>`
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
 `;

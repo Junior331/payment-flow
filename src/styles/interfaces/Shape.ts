@@ -1,6 +1,9 @@
 export interface IShape {
-  borderRadius: number | string,
+  borderRadius: number | string;
   padding: {
-    small: string,
-  }
+    small: string;
+    medium: string;
+    large: string;
+    huge: string;
+  };
 }

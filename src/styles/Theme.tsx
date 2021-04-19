@@ -15,7 +15,7 @@ const Theme: DefaultTheme = {
       contrastText: "#fff",
     },
     text: {
-      primary: "#fff",
+      primary: "#121145",
       secondary: "#fcfcfc",
       disabled: "#fbfbfb",
     },
@@ -84,6 +84,9 @@ const Theme: DefaultTheme = {
     borderRadius: "5px",
     padding: {
       small: "8px",
+      medium: "12px",
+      large: "16px",
+      huge: "24px",
     },
   },
 };

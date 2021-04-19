@@ -1,26 +1,28 @@
+import Image from "next/image";
 import React from "react";
 import * as S from "./styles";
 
-interface LogoProps {
-  width: string;
-  height: string;
-  padding: string;
-  margin: string;
+export interface LogoProps {
+  width?: string;
+  height?: string;
+  padding?: string;
+  margin?: string;
 }
 
 const Logo = ({
-  width = "150px",
-  height = "auto",
-  padding = "0",
-  margin = "0",
+  width = "40px",
+  height = "40px",
+  padding = "0px",
+  margin = "0px",
 }: LogoProps) => (
-  <S.LogoContainer
-    src="/logo.png"
-    width={width}
-    height={height}
-    padding={padding}
-    margin={margin}
-  />
+  <S.Container margin={margin} padding={padding}>
+    <Image
+      src="/images/logo.png"
+      width={width}
+      height={height}
+      objectFit="contain"
+    />
+  </S.Container>
 );
 
 export default Logo;
