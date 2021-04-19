@@ -22,7 +22,7 @@ const Typography = ({
   if (!children) return <></>;
 
   return (
-    <Element weight={weight} italic={italic} muted={muted} {...otherStyles}>
+    <Element muted={muted} {...otherStyles}>
       {children}
     </Element>
   );
