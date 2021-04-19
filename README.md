@@ -15,9 +15,9 @@ Fluxo de pagamento com a seleção de um plano e validação dos campos.
 - [ ] Component Button
 - [ ] Component PlanItem
 - [ ] Component PlanSelector
-- [ ] Component Header
-- [ ] Component Typography
-- [ ] Component CreditCards
+- [x] Component Header
+- [x] Component Typography
+- [x] Component CreditCards
 - [ ] Component FormPayment
 - [ ] Tela de seleção do plano
 - [ ] Tela de pagamento
