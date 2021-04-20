@@ -7,7 +7,7 @@ export const InputContainer = styled.div<{ width: string }>`
   display: flex;
   flex-direction: column;
   width: ${(props) => props.width};
-  padding: 15px 0px;
+  padding: 15px 4px;
   position: relative;
 `;
 

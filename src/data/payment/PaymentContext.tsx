@@ -16,13 +16,17 @@ export interface IPaymentData {
 export interface IPaymentContext {
   paymentData: IPaymentData;
   errors: Object;
-  setPaymentData: (paymentData: IPaymentData) => void;
+  setPaymentItem: (key: string, value: string) => void;
+  onChangeInput: (
+    key: string
+  ) => (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const INITIAL_CONTEXT = {
   paymentData: {},
   errors: {},
-  setPaymentData: () => {},
+  setPaymentItem: () => {},
+  onChangeInput: () => () => {},
 };
 
 export const PaymentContext = createContext<IPaymentContext>(INITIAL_CONTEXT);

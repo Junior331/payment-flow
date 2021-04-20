@@ -1,4 +1,4 @@
-import { IBaseService } from "../../data/interfaces/baseService";
+import { IBaseService } from "./interfaces/baseService";
 import { IPlan, IPlanEntity } from "../../domain/plan";
 
 export const PlanService = (
