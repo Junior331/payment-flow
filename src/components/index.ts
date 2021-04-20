@@ -9,6 +9,7 @@ import Typography from "./elements/Typography";
 import Header from "./features/Header";
 import PaymentForm from "./features/PaymentForm";
 import PlanSelector from "./features/PlanSelector";
+import CongratulationMessage from "./modules/CongratulationMessage";
 import Layout from "./modules/Layout";
 import PlanCard from "./modules/PlanCard";
 
@@ -26,4 +27,5 @@ export {
   PlanCard,
   OptionIndicator,
   Select,
+  CongratulationMessage,
 };
