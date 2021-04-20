@@ -13,13 +13,13 @@ export interface IPaymentData {
   userId?: number;
 }
 
-interface Option {
+export interface IOption {
   key: string;
   value: string;
 }
 
 export interface IPaymentContext {
-  installmentsOptions: Option[];
+  installmentsOptions: IOption[];
   paymentData: IPaymentData;
   errors: Object;
   setPaymentItem: (key: string, value: string) => void;
@@ -29,7 +29,7 @@ export interface IPaymentContext {
 }
 
 const INITIAL_CONTEXT = {
-  options: [],
+  installmentsOptions: [],
   paymentData: {},
   errors: {},
   setPaymentItem: () => {},

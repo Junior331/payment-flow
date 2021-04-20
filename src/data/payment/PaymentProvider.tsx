@@ -1,13 +1,11 @@
 import { useState } from "react";
+import { installmentsOptionsMock } from "./installmentsOption.mock";
 import { IPaymentData, PaymentContext } from "./PaymentContext";
 
 export function PaymentProvider({ children }) {
-  const installmentsOptions = Array(10)
-    .fill(null)
-    .map((_, index) => ({ key: index + 1, value: index + 1 }));
   const [paymentData, setPaymentData] = useState<IPaymentData>({});
   const [errors, setErrors] = useState({});
-
+  const installmentsOptions = installmentsOptionsMock;
   const setPaymentItem = (key: string, value: any) => {
     setPaymentData({ ...paymentData, [key]: value });
   };
