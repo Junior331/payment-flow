@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { IBaseService } from "../data/interfaces/baseService";
+import { IBaseService } from "../../data/interfaces/baseService";
 
 export const AxiosAdapterService = <T>(): IBaseService<T> => {
   const api = Axios.create({

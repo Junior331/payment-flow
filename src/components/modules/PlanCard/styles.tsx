@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { Typography } from "../..";
 
-interface ColumnProps {
-  alignItems?: "center" | "flex-end" | "flex-start";
-  flex?: string;
-}
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -18,11 +13,15 @@ export const Container = styled.div`
   margin: ${(props) => props.theme.shape.margin.medium} 0;
 `;
 
-export const Column = styled.div<ColumnProps>`
+export const Column = styled.div`
   display: flex;
-  align-items: ${(props) => props.alignItems || "flex-start"};
+  align-items: "flex-start";
   flex-direction: column;
-  flex: ${(props) => props.flex};
+`;
+
+export const LastColumn = styled(Column)`
+  align-items: flex-end;
+  flex: 1;
 `;
 
 export const PercentText = styled(Typography).attrs({

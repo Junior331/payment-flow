@@ -1,5 +1,3 @@
-import { IBaseService } from "../interfaces/baseService";
-
 export interface IPlan {
   id: number;
   storeId: string;
@@ -20,10 +18,6 @@ export interface IPlan {
   discountCouponCode: null | string;
 }
 
-export const PlanService = (baseService: IBaseService<IPlan[]>) => {
-  return {
-    getPlans: (): Promise<IPlan[]> => {
-      return baseService.get("offer");
-    },
-  };
-};
+export interface IPlanEntity {
+  getPlans: () => Promise<IPlan[]>;
+}

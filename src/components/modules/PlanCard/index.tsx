@@ -1,15 +1,19 @@
 import React from "react";
-import { IoIosArrowBack } from "react-icons/io";
 import { OptionIndicator } from "../..";
-import { IPlanViewModel } from "../../../data/plan/PlanViewModel";
+import { IPlanViewModel } from "../../../view/plan/PlanViewModel";
 import * as S from "./styles";
 
 export interface PlanCardProps {
   onSelect?: (plan) => void;
   plan: IPlanViewModel;
+  selected?: boolean;
 }
 
-const PlanCard: React.FC<PlanCardProps> = ({ plan, onSelect = () => {} }) => {
+const PlanCard: React.FC<PlanCardProps> = ({
+  plan,
+  onSelect = () => {},
+  selected,
+}) => {
   return (
     <S.Container onClick={() => onSelect(plan)}>
       <S.Column>
@@ -20,9 +24,9 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, onSelect = () => {} }) => {
       <S.Column>
         <S.PercentText>{plan.discountPercentage}</S.PercentText>
       </S.Column>
-      <S.Column alignItems="flex-end" flex="1">
-        <OptionIndicator selected />
-      </S.Column>
+      <S.LastColumn>
+        <OptionIndicator selected={selected} />
+      </S.LastColumn>
     </S.Container>
   );
 };

@@ -4,12 +4,13 @@ import * as S from "./styles";
 
 interface LayoutProps {
   children?: React.ReactNode;
+  hideBackButton?: boolean;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, hideBackButton }: LayoutProps) => {
   return (
     <S.Container>
-      <Header />
+      <Header hideBackButton={hideBackButton} />
       <S.ContainerMain>{children}</S.ContainerMain>
     </S.Container>
   );

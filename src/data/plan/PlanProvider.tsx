@@ -1,12 +1,16 @@
-import { useMemo, useEffect, useState } from "react";
-import { PlanService } from "./PlanService";
-import { IPlan, PlanContext } from "./PlanContext";
-import { AxiosAdapterService } from "../../adapters/axios.adaptes";
-import { IPlanViewModel, PlanViewModel } from "./PlanViewModel";
+import { useEffect, useMemo, useState } from "react";
+import { PlanService } from "../../infra/services/PlanService";
+import { PlanContext } from "./PlanContext";
+import { AxiosAdapterService } from "../../infra/adapters/axios.adapter";
+import { IPlanViewModel, PlanViewModel } from "../../view/Plan/PlanViewModel";
+import { IPlan } from "../../domain/plan";
 
 export function PlanProvider({ children }) {
   const [plans, setPaymentData] = useState<IPlan[]>([]);
-  const plansFriendly: IPlanViewModel[] = PlanViewModel(plans);
+  const [selectedPlan, setSelectedPlan] = useState({} as IPlanViewModel);
+  const plansFriendly: IPlanViewModel[] = useMemo(() => PlanViewModel(plans), [
+    plans,
+  ]);
 
   useEffect(() => {
     const baseService = AxiosAdapterService<IPlan[]>();
@@ -23,8 +27,9 @@ export function PlanProvider({ children }) {
   return (
     <PlanContext.Provider
       value={{
-        plans,
-        plansFriendly,
+        plans: plansFriendly,
+        selectedPlan,
+        setSelectedPlan,
       }}
     >
       {children}

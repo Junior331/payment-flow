@@ -1,5 +1,5 @@
-import { IPlan } from "./PlanContext";
-import { masks } from "../../helpers/masks";
+import { IPlan } from "../../domain/plan";
+import { masks } from "../../infra/helpers/masks";
 
 export interface IPlanViewModel {
   id: number;
@@ -7,6 +7,7 @@ export interface IPlanViewModel {
   discountPercentage: string;
   quota: string;
   title: string;
+  name: string;
 }
 
 export const PlanViewModel = (plans: IPlan[]): IPlanViewModel[] => {
@@ -28,6 +29,7 @@ export const PlanViewModel = (plans: IPlan[]): IPlanViewModel[] => {
     value: getValue(plan),
     id: plan.id,
     quota: getQuota(plan),
+    name: plan.name,
   }));
 
   return plansFriendly;

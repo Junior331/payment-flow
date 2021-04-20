@@ -1,15 +1,16 @@
-import { useEffect } from "react";
-import { PaymentForm, PlanSelector, Typography } from "../src/components";
-import { CreditCard } from "../src/components";
-import { usePlan } from "../src/data/plan/usePlan";
+import { useRouter } from "next/router";
+import { Button, Layout, PlanSelector, Typography } from "../src/components";
 
 function PlanSelectorPage() {
-  const { plansFriendly } = usePlan();
+  const router = useRouter();
   return (
-    <div>
+    <Layout hideBackButton>
       <Typography variant="h1">Confira o seu plano:</Typography>
-      <PlanSelector plans={plansFriendly} />
-    </div>
+      <PlanSelector />
+      <Button onClick={() => router.push("/form-payment")} size="huge">
+        Avançar
+      </Button>
+    </Layout>
   );
 }
 

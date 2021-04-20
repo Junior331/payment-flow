@@ -5,8 +5,8 @@ import { PaymentProvider } from "../src/data/payment/PaymentProvider";
 import GlobalStyle from "../src/styles/GlobalStyle";
 import Theme from "../src/styles/Theme";
 import { Layout } from "../src/components";
-import "./_app.css";
 import { PlanProvider } from "../src/data/plan/PlanProvider";
+import "./_app.css";
 
 export default class MyApp extends App {
   render() {
@@ -16,9 +16,7 @@ export default class MyApp extends App {
         <GlobalStyle />
         <PaymentProvider>
           <PlanProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <Component {...pageProps} />
           </PlanProvider>
         </PaymentProvider>
       </ThemeProvider>

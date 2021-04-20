@@ -3,10 +3,14 @@ import Router from "next/router";
 import { BackButton, Logo } from "../..";
 import * as S from "./styles";
 
-const Header: React.FC = () => (
+interface HeaderProps {
+  hideBackButton?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ hideBackButton }) => (
   <S.Container>
     <S.Column>
-      <BackButton onClick={() => Router.back()} />
+      {!hideBackButton && <BackButton onClick={() => Router.back()} />}
     </S.Column>
     <S.Column justifyContent="center">
       <Logo />

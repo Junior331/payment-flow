@@ -1,34 +1,15 @@
 import { createContext } from "react";
-import { IPlanViewModel } from "./PlanViewModel";
-
-export interface IPlan {
-  id: number;
-  storeId: string;
-  name: string;
-  description: string;
-  fullPrice: number;
-  discountPercentage: number;
-  order: number;
-  gateway: string;
-  splittable: boolean;
-  acceptsCoupon: boolean;
-  caption: string;
-  periodLabel: string;
-  period: string;
-  priority: 2;
-  title: string;
-  discountAmmount: number;
-  discountCouponCode: null | string;
-}
-
+import { IPlanViewModel } from "../../view/Plan/PlanViewModel";
 export interface IPlanContext {
-  plans: IPlan[];
-  plansFriendly: IPlanViewModel[];
+  plans: IPlanViewModel[];
+  selectedPlan: IPlanViewModel;
+  setSelectedPlan: (plan: IPlanViewModel) => void;
 }
 
 const INITIAL_CONTEXT = {
   plans: [],
-  plansFriendly: [],
+  selectedPlan: {} as IPlanViewModel,
+  setSelectedPlan: () => {},
 };
 
 export const PlanContext = createContext<IPlanContext>(INITIAL_CONTEXT);
