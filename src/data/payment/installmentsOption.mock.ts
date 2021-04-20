@@ -1,4 +1,4 @@
-import { IOption } from "./PaymentContext";
+import { IOption } from "../../domain/payment";
 
 export const installmentsOptionsMock: IOption[] = Array(10)
   .fill(null)

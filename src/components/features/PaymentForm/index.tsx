@@ -1,21 +1,36 @@
+import { useRouter } from "next/router";
 import React, { InputHTMLAttributes, useState } from "react";
 import { Input, Button, Select } from "../../";
 import { usePayment } from "../../../data/payment/usePayment";
+import { usePlan } from "../../../data/plan/usePlan";
 import { typeMask } from "../../../infra/helpers/masks";
 import * as S from "./styles";
-// import { masks, typeMask } from "../../../utils/masks";
 
-export interface PaymentFormProps {
-  error?: boolean;
-}
-
-const PaymentForm: React.FC<PaymentFormProps> = ({}) => {
+const PaymentForm: React.FC = () => {
+  const router = useRouter();
+  const { selectedPlan } = usePlan();
   const [isLoading, setIsLoading] = useState(false);
-  const { paymentData, onChangeInput, installmentsOptions } = usePayment();
+  const {
+    paymentData,
+    onChangeInput,
+    installmentsOptions,
+    finishPayment,
+  } = usePayment();
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    try {
+      await finishPayment({ ...paymentData, offerId: selectedPlan.id });
+      setIsLoading(false);
+      router.push("/success");
+    } catch (error) {
+      setIsLoading(false);
+    }
+  };
   console.log(paymentData);
 
   return (
-    <S.FormContainer onSubmit={(form) => console.log(form)}>
+    <S.FormContainer>
       <Input
         readOnly={isLoading}
         mask={typeMask.cardNumber}
@@ -72,7 +87,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({}) => {
         onChange={onChangeInput("installments")}
         options={installmentsOptions}
       />
-      <Button size="huge" isLoading={isLoading}>
+      <Button onClick={handleSubmit} size="huge" isLoading={isLoading}>
         Finalizar Pagamento
       </Button>
     </S.FormContainer>
