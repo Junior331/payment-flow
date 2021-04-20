@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, useState } from "react";
-import { Input, Button } from "../../";
+import { Input, Button, Select } from "../../";
 import { usePayment } from "../../../data/payment/usePayment";
 import { typeMask } from "../../../infra/helpers/masks";
 import * as S from "./styles";
@@ -11,7 +11,7 @@ export interface PaymentFormProps {
 
 const PaymentForm: React.FC<PaymentFormProps> = ({}) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { paymentData, onChangeInput } = usePayment();
+  const { paymentData, onChangeInput, installmentsOptions } = usePayment();
   console.log(paymentData);
 
   return (
@@ -63,6 +63,14 @@ const PaymentForm: React.FC<PaymentFormProps> = ({}) => {
         placeholder="Insira aqui"
         value={paymentData.couponCode}
         onChange={onChangeInput("couponCode")}
+      />
+      <Select
+        disabled={isLoading}
+        label="Número de parcelas"
+        placeholder="Selecionar"
+        value={paymentData.installments}
+        onChange={onChangeInput("installments")}
+        options={installmentsOptions}
       />
       <Button size="huge" isLoading={isLoading}>
         Finalizar Pagamento

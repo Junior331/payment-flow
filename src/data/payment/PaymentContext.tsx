@@ -13,16 +13,23 @@ export interface IPaymentData {
   userId?: number;
 }
 
+interface Option {
+  key: string;
+  value: string;
+}
+
 export interface IPaymentContext {
+  installmentsOptions: Option[];
   paymentData: IPaymentData;
   errors: Object;
   setPaymentItem: (key: string, value: string) => void;
   onChangeInput: (
     key: string
-  ) => (event: React.ChangeEvent<HTMLInputElement>) => void;
+  ) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 const INITIAL_CONTEXT = {
+  options: [],
   paymentData: {},
   errors: {},
   setPaymentItem: () => {},

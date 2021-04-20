@@ -2,6 +2,9 @@ import { useState } from "react";
 import { IPaymentData, PaymentContext } from "./PaymentContext";
 
 export function PaymentProvider({ children }) {
+  const installmentsOptions = Array(10)
+    .fill(null)
+    .map((_, index) => ({ key: index + 1, value: index + 1 }));
   const [paymentData, setPaymentData] = useState<IPaymentData>({});
   const [errors, setErrors] = useState({});
 
@@ -10,7 +13,7 @@ export function PaymentProvider({ children }) {
   };
 
   const onChangeInput = (key: string) => (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => setPaymentItem(key, event.target.value);
 
   return (
@@ -20,6 +23,7 @@ export function PaymentProvider({ children }) {
         errors,
         setPaymentItem,
         onChangeInput,
+        installmentsOptions,
       }}
     >
       {children}

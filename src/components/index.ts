@@ -4,6 +4,7 @@ import CreditCard from "./elements/CreditCards";
 import Input from "./elements/Input";
 import Logo from "./elements/Logo";
 import OptionIndicator from "./elements/OptionIndicator";
+import Select from "./elements/Select";
 import Typography from "./elements/Typography";
 import Header from "./features/Header";
 import PaymentForm from "./features/PaymentForm";
@@ -24,4 +25,5 @@ export {
   PlanSelector,
   PlanCard,
   OptionIndicator,
+  Select,
 };
