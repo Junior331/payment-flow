@@ -49,8 +49,8 @@ export const HintLabel = styled.span`
 
 export const ErrorMessageStyled = styled.span`
   position: absolute;
-  bottom: -6px;
-  left: 34px;
+  bottom: 0px;
+  left: 4px;
   color: ${(props) => props.theme.palette.error.main};
   font-weight: ${(props) => props.theme.typography.fontWeightMedium};
   font-size: 10px;

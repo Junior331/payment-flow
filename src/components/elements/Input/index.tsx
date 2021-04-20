@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, useState } from "react";
 import { masks, typeMask } from "../../../infra/helpers/masks";
 import * as S from "./styles";
 
@@ -6,7 +6,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   width?: string;
   mask?: typeMask;
-  error?: boolean;
+  error?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,6 +18,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   ...otherProps
 }) => {
+  const [touched, setTouched] = useState(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     const maskedValue = masks[mask || "standard"](target?.value || "");
@@ -25,16 +26,19 @@ const Input: React.FC<InputProps> = ({
     onChange(event);
   };
 
-  const hasError = Boolean(error);
+  const errorMessage = touched ? error : "";
+  const hasError = Boolean(error && touched);
   return (
     <S.InputContainer width={width}>
       <S.Label error={hasError}>{label}</S.Label>
       <S.Input
         {...otherProps}
-        // error={touched ? error : ""}
+        error={errorMessage}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
         value={value}
+        onBlur={() => setTouched(true)}
       />
+      <S.ErrorMessageStyled>{errorMessage}</S.ErrorMessageStyled>
     </S.InputContainer>
   );
 };

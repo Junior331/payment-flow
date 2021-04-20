@@ -4,6 +4,7 @@ export interface IPaymentContext {
   installmentsOptions: IOption[];
   paymentData: IPaymentData;
   errors: Object;
+  isValid?: boolean;
   setPaymentItem?: (key: string, value: string) => void;
   onChangeInput?: (
     key: string
@@ -11,9 +12,19 @@ export interface IPaymentContext {
   finishPayment?: (data: IPaymentData) => Promise<void>;
 }
 
-const INITIAL_CONTEXT = {
+export const INITIAL_CONTEXT = {
   installmentsOptions: [],
-  paymentData: {},
+  paymentData: {
+    couponCode: "",
+    creditCardCPF: "",
+    creditCardCVV: "",
+    creditCardExpirationDate: "",
+    creditCardHolder: "",
+    creditCardNumber: "",
+    gateway: "iugu",
+    installments: 0,
+    userId: 1,
+  },
   errors: {},
 };
 

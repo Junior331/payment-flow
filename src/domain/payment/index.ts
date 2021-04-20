@@ -17,6 +17,6 @@ export interface IOption {
   value: string;
 }
 
-export interface IPaymentEntity {
+export interface IPaymentAPI {
   finishPayment: (data: IPaymentData) => Promise<IPaymentData>;
 }

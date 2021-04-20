@@ -15,6 +15,8 @@ const PaymentForm: React.FC = () => {
     onChangeInput,
     installmentsOptions,
     finishPayment,
+    errors,
+    isValid,
   } = usePayment();
 
   const handleSubmit = async () => {
@@ -27,7 +29,6 @@ const PaymentForm: React.FC = () => {
       setIsLoading(false);
     }
   };
-  console.log(paymentData);
 
   return (
     <S.FormContainer>
@@ -38,6 +39,7 @@ const PaymentForm: React.FC = () => {
         placeholder="0000 0000 0000 0000"
         value={paymentData.creditCardNumber}
         onChange={onChangeInput("creditCardNumber")}
+        error={errors["creditCardNumber"]}
       />
       <Input
         readOnly={isLoading}
@@ -47,6 +49,7 @@ const PaymentForm: React.FC = () => {
         placeholder="MM/AA"
         value={paymentData.creditCardExpirationDate}
         onChange={onChangeInput("creditCardExpirationDate")}
+        error={errors["creditCardExpirationDate"]}
       />
       <Input
         readOnly={isLoading}
@@ -56,6 +59,7 @@ const PaymentForm: React.FC = () => {
         placeholder="000"
         value={paymentData.creditCardCVV}
         onChange={onChangeInput("creditCardCVV")}
+        error={errors["creditCardCVV"]}
       />
       <Input
         readOnly={isLoading}
@@ -63,6 +67,7 @@ const PaymentForm: React.FC = () => {
         placeholder="Seu nome"
         value={paymentData.creditCardHolder}
         onChange={onChangeInput("creditCardHolder")}
+        error={errors["creditCardHolder"]}
       />
       <Input
         readOnly={isLoading}
@@ -71,6 +76,7 @@ const PaymentForm: React.FC = () => {
         placeholder="000.000.000-00"
         value={paymentData.creditCardCPF}
         onChange={onChangeInput("creditCardCPF")}
+        error={errors["creditCardCPF"]}
       />
       <Input
         readOnly={isLoading}
@@ -78,6 +84,7 @@ const PaymentForm: React.FC = () => {
         placeholder="Insira aqui"
         value={paymentData.couponCode}
         onChange={onChangeInput("couponCode")}
+        error={errors["couponCode"]}
       />
       <Select
         disabled={isLoading}
@@ -86,8 +93,14 @@ const PaymentForm: React.FC = () => {
         value={paymentData.installments}
         onChange={onChangeInput("installments")}
         options={installmentsOptions}
+        error={errors["installments"]}
       />
-      <Button onClick={handleSubmit} size="huge" isLoading={isLoading}>
+      <Button
+        onClick={handleSubmit}
+        size="huge"
+        isLoading={isLoading}
+        disabled={isLoading || !isValid}
+      >
         Finalizar Pagamento
       </Button>
     </S.FormContainer>

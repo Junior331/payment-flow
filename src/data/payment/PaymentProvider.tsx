@@ -3,11 +3,15 @@ import { IPaymentData } from "../../domain/payment";
 import { AxiosAdapterService } from "../../infra/adapters/axios.adapter";
 import { PaymentService } from "../../infra/services/PaymentService";
 import { installmentsOptionsMock } from "./installmentsOption.mock";
-import { PaymentContext } from "./PaymentContext";
+import { INITIAL_CONTEXT, PaymentContext } from "./PaymentContext";
+import { PaymentValidator } from "./PaymentValidator";
 
 export function PaymentProvider({ children }) {
-  const [paymentData, setPaymentData] = useState<IPaymentData>({});
-  const [errors, setErrors] = useState({});
+  const [paymentData, setPaymentData] = useState<IPaymentData>(
+    INITIAL_CONTEXT.paymentData
+  );
+  const { isValid, validate } = PaymentValidator(paymentData);
+  const errors = validate();
   const installmentsOptions = installmentsOptionsMock;
   const setPaymentItem = (key: string, value: any) => {
     setPaymentData({ ...paymentData, [key]: value });
@@ -36,6 +40,7 @@ export function PaymentProvider({ children }) {
         onChangeInput,
         installmentsOptions,
         finishPayment,
+        isValid,
       }}
     >
       {children}

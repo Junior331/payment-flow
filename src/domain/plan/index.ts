@@ -18,6 +18,6 @@ export interface IPlan {
   discountCouponCode: null | string;
 }
 
-export interface IPlanEntity {
+export interface IPlanAPI {
   getPlans: () => Promise<IPlan[]>;
 }
